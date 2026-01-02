@@ -210,28 +210,41 @@ input[type="date"]:focus {
     margin-top: 1rem;
 }
 
-/* Color Card */
-.color-content {
+/* Color Palette (Updated for 3 colors) */
+.color-palette {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.color-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    text-align: center;
+    background-color: #f9fafb;
+    padding: 10px;
+    border-radius: 8px;
 }
 
-.color-box {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow-md);
+.color-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    /* Square */
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.color-info-name {
-    font-size: 1.25rem;
+.color-name-sm {
     font-weight: 500;
+    font-size: 0.9rem;
+    color: #374151;
 }
 
-.color-info-hex {
-    font-size: 0.875rem;
-    color: var(--text-muted);
+.color-hex-sm {
+    font-size: 0.75rem;
+    color: #9ca3af;
 }
 
 /* Image Cards (Drink, Flower) */
@@ -243,6 +256,8 @@ input[type="date"]:focus {
     position: relative;
     overflow: hidden;
     margin-bottom: 0.75rem;
+    background-color: #e5e7eb;
+    /* Fallback gray color */
 }
 
 .img-overlay {

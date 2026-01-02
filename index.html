@@ -75,7 +75,7 @@
                 <!-- 2. Quote -->
                 <div class="card">
                     <div class="card-title">
-                        📖 오늘의 명언
+                        📖 마음의 한 줄
                     </div>
                     <div class="quote-content" id="quote-container">
                         <!-- Quote lines injected here -->
@@ -85,13 +85,26 @@
                 <!-- 3. Color (Individual Card) -->
                 <div class="card">
                     <div class="card-title">
-                        🎨 오늘의 컬러
+                        🎨 행운의 팔레트
                     </div>
-                    <div class="color-content">
-                        <div class="color-box" id="color-box"></div>
-                        <div>
-                            <div class="color-info-name" id="color-name"></div>
-                            <div class="color-info-hex" id="color-hex"></div>
+                    <div class="color-palette">
+                        <!-- Color 1 -->
+                        <div class="color-item">
+                            <div class="color-swatch" id="color-box-1"></div>
+                            <div class="color-name-sm" id="color-name-1"></div>
+                            <div class="color-hex-sm" id="color-hex-1"></div>
+                        </div>
+                        <!-- Color 2 -->
+                        <div class="color-item">
+                            <div class="color-swatch" id="color-box-2"></div>
+                            <div class="color-name-sm" id="color-name-2"></div>
+                            <div class="color-hex-sm" id="color-hex-2"></div>
+                        </div>
+                        <!-- Color 3 -->
+                        <div class="color-item">
+                            <div class="color-swatch" id="color-box-3"></div>
+                            <div class="color-name-sm" id="color-name-3"></div>
+                            <div class="color-hex-sm" id="color-hex-3"></div>
                         </div>
                     </div>
                 </div>
@@ -99,10 +112,10 @@
                 <!-- 4. Beverage (Individual Card) -->
                 <div class="card">
                     <div class="card-title">
-                        ☕ 추천 음료
+                        ☕ 마시는 부적
                     </div>
                     <div id="beverage-img" class="img-container"
-                        style="background-image: url('https://images.unsplash.com/photo-1706716187229-a5edeaef8135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBjdXAlMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzY3MjQ3NDkyfDA&ixlib=rb-4.1.0&q=80&w=1080');">
+                        style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800');">
                         <div class="img-overlay">
                             <div class="img-text" id="beverage-name"></div>
                         </div>
@@ -112,10 +125,10 @@
                 <!-- 5. Flower (Individual Card) -->
                 <div class="card">
                     <div class="card-title">
-                        🌸 제안된 꽃
+                        🌸 나에게 온 꽃
                     </div>
                     <div id="flower-img" class="img-container"
-                        style="background-image: url('https://images.unsplash.com/photo-1535222830855-fd60aca7e065?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdW5mbG93ZXIlMjBmaWVsZHxlbnwxfHx8fDE3NjczMjAyNzF8MA&ixlib=rb-4.1.0&q=80&w=1080');">
+                        style="background-image: url('https://images.unsplash.com/photo-1462275646964-a0e338679cde?w=800');">
                         <div class="img-overlay">
                             <div class="img-text" id="flower-name"></div>
                         </div>
@@ -125,8 +138,65 @@
                     </div>
                 </div>
 
-                <!-- 6. Shopping -->
+                <!-- 6. Lucky Boosters Grid -->
                 <div class="card">
+                    <div class="card-title">
+                        🚀 행운 부스터
+                    </div>
+                    <div class="grid-2">
+                        <!-- Lucky Number -->
+                        <div class="analysis-item">
+                            <div class="analysis-label">행운의 숫자</div>
+                            <div class="analysis-value large" id="res-lucky-num"></div>
+                            <div class="analysis-sub">오늘 당신을 지켜줄 숫자</div>
+                        </div>
+                        <!-- Golden Time -->
+                        <div class="analysis-item">
+                            <div class="analysis-label">행운의 시간</div>
+                            <div class="analysis-value" id="res-golden-time"></div>
+                            <div class="analysis-sub">중요한 결정은 이 시간에</div>
+                        </div>
+                        <!-- Lucky Direction -->
+                        <div class="analysis-item">
+                            <div class="analysis-label">행운의 방향</div>
+                            <div class="analysis-value" id="res-direction"></div>
+                            <div class="analysis-sub" id="res-direction-desc">좋은 소식이 들려오는 곳</div>
+                        </div>
+                        <!-- Lucky Item -->
+                        <div class="analysis-item">
+                            <div class="analysis-label">행운의 아이템</div>
+                            <div class="analysis-value" id="res-item"></div>
+                            <div class="analysis-sub" id="res-item-desc">챙기면 실수가 줄어들어요</div>
+                        </div>
+                        <!-- Fashion Point -->
+                        <div class="analysis-item">
+                            <div class="analysis-label">오늘의 드레스 코드</div>
+                            <div class="analysis-value" id="res-fashion"></div>
+                            <div class="analysis-sub">이 스타일이 어울려요</div>
+                        </div>
+                        <!-- Action Verb -->
+                        <div class="analysis-item">
+                            <div class="analysis-label">추천 활동</div>
+                            <div class="analysis-value" id="res-action"></div>
+                            <div class="analysis-sub" id="res-action-desc">오늘의 키워드</div>
+                        </div>
+                        <!-- Best Partner -->
+                        <div class="analysis-item">
+                            <div class="analysis-label">귀인 매칭</div>
+                            <div class="analysis-value" id="res-partner"></div>
+                            <div class="analysis-sub">함께하면 행운이 따릅니다</div>
+                        </div>
+                        <!-- Avoid -->
+                        <div class="analysis-item" style="background-color: #fff1f2;">
+                            <div class="analysis-label" style="color: #e11d48;">피해야 할 것</div>
+                            <div class="analysis-value" id="res-avoid" style="color: #e11d48;"></div>
+                            <div class="analysis-sub">오늘은 이것만 주의하세요</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Shopping (Disabled) -->
+                <!-- <div class="card">
                     <div class="card-title">
                         🛍️ 오늘의 쇼핑 아이템
                     </div>
@@ -137,7 +207,7 @@
                             네이버 쇼핑에서 검색하기
                         </a>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </main>
