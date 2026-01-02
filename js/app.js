@@ -26,7 +26,6 @@ const app = {
                 content: "작은 것에 감사하며\n큰 꿈을 꾸고\n매일을 축복으로\n살아가는 것",
                 author: "행복론",
             },
-            // Added extra for variety since hash can be large
             {
                 title: "별 헤는 밤",
                 content: "계절이 지나가는 하늘에는\n가을로 가득 차 있습니다\n나는 아무 걱정도 없이\n가을 속의 별들을 다 헤일 듯합니다",
@@ -63,13 +62,14 @@ const app = {
             { name: "심판", description: "부활, 보상, 각성 (XX)" },
             { name: "세계", description: "완성, 성취, 통합 (XXI)" }
         ],
+        // Updated with images
         flowers: [
-            { name: "해바라기", meaning: "행복, 열정" },
-            { name: "장미", meaning: "사랑, 아름다움" },
-            { name: "튤립", meaning: "완벽한 사랑" },
-            { name: "라벤더", meaning: "평온, 치유" },
-            { name: "수국", meaning: "진심, 변덕" },
-            { name: "프리지아", meaning: "천진난만, 시작" }
+            { name: "해바라기", meaning: "행복, 열정", image: "https://images.unsplash.com/photo-1470509037663-253afd7f0f51?w=800" },
+            { name: "장미", meaning: "사랑, 아름다움", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800" },
+            { name: "튤립", meaning: "완벽한 사랑", image: "https://images.unsplash.com/photo-1520763185298-1b434c919102?w=800" },
+            { name: "라벤더", meaning: "평온, 치유", image: "https://images.unsplash.com/photo-1493612276216-9c7827e997df?w=800" },
+            { name: "수국", meaning: "진심, 변덕", image: "https://images.unsplash.com/photo-1507746560936-3a5c2d169d54?w=800" },
+            { name: "프리지아", meaning: "천진난만, 시작", image: "https://images.unsplash.com/photo-1634547307613-2d1ae2c14fc5?w=800" }
         ],
         colors: [
             { name: "Gold", hex: "#FFD700" },
@@ -79,8 +79,16 @@ const app = {
             { name: "Sky Blue", hex: "#87CEEB" },
             { name: "Rose Pink", hex: "#FFB7C5" }
         ],
+        // Updated with images
         beverages: [
-            "아메리카노", "카페라떼", "얼그레이 티", "녹차", "캐모마일 티", "에스프레소", "자몽에이드", "바닐라라떼"
+            { name: "아메리카노", image: "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=800" },
+            { name: "카페라떼", image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800" },
+            { name: "얼그레이 티", image: "https://images.unsplash.com/photo-1576092762791-2f9a907e7e82?w=800" },
+            { name: "녹차", image: "https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?w=800" },
+            { name: "캐모마일 티", image: "https://images.unsplash.com/photo-1597816760676-43d941864cc2?w=800" },
+            { name: "에스프레소", image: "https://images.unsplash.com/photo-1610889556283-7d84814d4203?w=800" },
+            { name: "자몽에이드", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800" },
+            { name: "바닐라라떼", image: "https://images.unsplash.com/photo-1517701604599-bb29b5dd7359?w=800" }
         ],
         shoppingItems: [
             { name: "헌터", category: "부츠" },
@@ -142,7 +150,6 @@ const app = {
     },
 
     generateHash: function (dateStr) {
-        // Implementation from user provided React code
         return dateStr
             .split("-")
             .join("")
@@ -203,14 +210,16 @@ const app = {
         document.getElementById('color-name').innerText = color.name;
         document.getElementById('color-hex').innerText = color.hex;
 
-        // 4. Beverage
+        // 4. Beverage (Dynamic Image)
         const beverage = this.getSelection(data.beverages, hash);
-        document.getElementById('beverage-name').innerText = beverage;
+        document.getElementById('beverage-name').innerText = beverage.name;
+        document.getElementById('beverage-img').style.backgroundImage = `url('${beverage.image}')`;
 
-        // 5. Flower
+        // 5. Flower (Dynamic Image)
         const flower = this.getSelection(data.flowers, hash);
         document.getElementById('flower-name').innerText = flower.name;
         document.getElementById('flower-meaning').innerText = flower.meaning;
+        document.getElementById('flower-img').style.backgroundImage = `url('${flower.image}')`;
 
         // 6. Shopping
         const shopping = this.getSelection(data.shoppingItems, hash);
