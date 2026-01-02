@@ -29,7 +29,8 @@
                     (정보는 브라우저에만 안전하게 저장됩니다)
                 </p>
                 <div class="input-form">
-                    <input type="date" id="birth-date" placeholder="1990. 01. 01.">
+                    <input type="text" id="birth-date" placeholder="19900101 (8자리 입력)" maxlength="8" pattern="[0-9]*"
+                        inputmode="numeric">
                     <button class="btn" onclick="app.saveBirthday()">확인</button>
                 </div>
             </div>
@@ -119,6 +120,9 @@
                         <div class="img-overlay">
                             <div class="img-text" id="beverage-name"></div>
                         </div>
+                    </div>
+                    <div style="text-align: center; color: #4b5563; font-size: 0.9rem; margin-top: 5px;">
+                        <span id="beverage-desc"></span>
                     </div>
                 </div>
 
