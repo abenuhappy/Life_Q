@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Song+Myung&display=swap');
+
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --accent-color: #fd79a8;
+    --bg-color: #fce4ec;
+    /* 부드러운 분홍빛 배경 */
+    --text-color: #2d3436;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #e8f5e9 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-family: 'Song Myung', serif;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Sections */
+.section {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Forms */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+input[type="date"] {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #5849be;
+    transform: translateY(-2px);
+}
+
+.btn-search {
+    background-color: #03C75A;
+    /* Naver Green */
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Analysis */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.analysis-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.label {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.keyword {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Daily Content */
+.daily-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Quote Specific */
+.quote-text {
+    font-family: 'Song Myung', serif;
+    font-size: 1.3rem;
+    margin: 20px 0;
+    text-align: center;
+    word-break: keep-all;
+    line-height: 1.6;
+}
+
+.quote-author {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Shopping */
+.shop-item-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+
+/* Hidden elements */
+.hidden {
+    display: none !important;
+}
