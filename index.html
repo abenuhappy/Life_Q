@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,11 @@
     <!-- Open Graph for sharing -->
     <meta property="og:title" content="오늘의 명언 & 운세">
     <meta property="og:description" content="당신의 생일에 맞는 특별한 명언과 추천을 확인해보세요.">
-    
+
     <link rel="stylesheet" href="css/style.css">
     <!-- Google Fonts included in CSS -->
 </head>
+
 <body>
 
     <div class="container">
@@ -36,7 +38,8 @@
         <div id="result-section" class="section hidden">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h3>✨ 오늘의 분석</h3>
-                <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background-color: #aaa;" onclick="app.resetData()">설정 초기화</button>
+                <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background-color: #aaa;"
+                    onclick="app.resetData()">설정 초기화</button>
             </div>
 
             <!-- 1. Personal Analysis -->
@@ -74,25 +77,26 @@
                 </div>
             </div>
 
-            <!-- 3. Recommendations -->
-            <div class="daily-card">
-                <div class="card-header">
-                    <span class="icon">🎨</span>
-                    <span class="card-title">행운의 추천</span>
+            <!-- 3. Recommendations (Individual Cards) -->
+            <h3 style="margin: 20px 0 10px 0; font-size: 1.1rem;">🍀 행운의 추천</h3>
+            <div class="rec-grid">
+                <!-- Color -->
+                <div class="rec-card">
+                    <div class="rec-icon-bg" style="background-color: #ffeaa7;">🎨</div>
+                    <span class="label">오늘의 컬러</span>
+                    <strong id="rec-color" class="rec-value">-</strong>
                 </div>
-                <div style="display: grid; gap: 10px;">
-                    <div>
-                        <span class="label">오늘의 컬러</span>
-                        <strong id="rec-color" style="color: var(--primary-color)">-</strong>
-                    </div>
-                    <div>
-                        <span class="label">추천 음료</span>
-                        <strong id="rec-drink">-</strong>
-                    </div>
-                    <div>
-                        <span class="label">행운의 꽃</span>
-                        <strong id="rec-flower">-</strong>
-                    </div>
+                <!-- Drink -->
+                <div class="rec-card">
+                    <div class="rec-icon-bg" style="background-color: #fab1a0;">☕</div>
+                    <span class="label">추천 음료</span>
+                    <strong id="rec-drink" class="rec-value">-</strong>
+                </div>
+                <!-- Flower -->
+                <div class="rec-card">
+                    <div class="rec-icon-bg" style="background-color: #55efc4;">🌸</div>
+                    <span class="label">행운의 꽃</span>
+                    <strong id="rec-flower" class="rec-value">-</strong>
                 </div>
             </div>
 
@@ -116,4 +120,5 @@
 
     <script src="js/app.js"></script>
 </body>
+
 </html>
