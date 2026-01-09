@@ -299,6 +299,29 @@ const app = {
     init: function () {
         this.loadBirthday();
         this.updateDateDisplay();
+        this.startDailyRefresh();
+
+        if (this.state.birthDate) {
+            this.renderRecommendations(this.state.birthDate);
+        } else {
+            document.getElementById('result-container').classList.add('hidden');
+        }
+    },
+
+    // --- Daily Refresh ---
+    startDailyRefresh: function () {
+        // Store the current day string to detect change
+        let lastDay = new Date().toDateString();
+        setInterval(() => {
+            const now = new Date();
+            const currentDay = now.toDateString();
+            if (currentDay !== lastDay) {
+                lastDay = currentDay;
+                if (this.state.birthDate) {
+                    this.renderRecommendations(this.state.birthDate);
+                }
+            }
+        }, 60 * 1000); // check every minute
     },
 
     updateDateDisplay: function () {
@@ -337,7 +360,6 @@ const app = {
             alert('연도를 확인해주세요.');
             return;
         }
-
         this.state.birthDate = input;
         localStorage.setItem('user_birthday_v2', input); // Changed key to avoid conflict with old format
         this.renderRecommendations(input);
@@ -362,6 +384,7 @@ const app = {
             location.reload();
         }
     },
+
 
     // Helper: Valid Zodiac Calculation
     getZodiac: function (m, d) {
@@ -440,10 +463,9 @@ const app = {
         return this.data.tarotCards[cardNum] || this.data.tarotCards[0];
     },
 
-    generateHash: function (dateStr) {
-        return dateStr
-            .split("-")
-            .join("")
+    generateHash: function (combinedStr) {
+        // combinedStr = birthday (YYYY-MM-DD) + today (YYYYMMDD)
+        return combinedStr
             .split("")
             .reduce((acc, char) => acc + char.charCodeAt(0), 0);
     },
@@ -459,9 +481,11 @@ const app = {
         const m = parseInt(dateStr.substring(4, 6), 10);
         const d = parseInt(dateStr.substring(6, 8), 10);
 
-        // Keep a hash for the "Random/Lucky" items that change daily or strictly by personal hash
-        // We use the same string for consistency
-        const hash = this.generateHash(dateStr);
+        // Combine birthday with today's date (YYYYMMDD) for daily variation
+        const today = new Date();
+        const todayStr = today.toISOString().slice(0, 10).replace(/-/g, "");
+        const combined = dateStr + todayStr;
+        const hash = this.generateHash(combined);
         const { data } = this;
 
         // Default Images
